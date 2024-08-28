@@ -23,7 +23,7 @@ class WorkController extends Controller
     }
 
     public function create(){
-        return "cria usuario";
+        return view("work.create");
     }
 
     public function edit(){
