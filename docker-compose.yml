@@ -1,0 +1,12 @@
+services:
+    database:
+        container_name: workmanager-database
+        image: postgres:16.4-alpine3.20
+        environment:
+            POSTGRES_USER: user
+            POSTGRES_PASSWORD: pass
+            POSTGRES_DB: workmanager
+        ports:
+            - 5432:5432
+        volumes:
+            - ./docker/database/data:/var/lib/postgresql/data

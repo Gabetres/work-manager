@@ -6,13 +6,17 @@
 - Extensoes do PHP `php -m`
 ```
 [PHP Modules]
-calendar Core ctype date dom exif FFI fileinfo filter ftp gettext hash iconv json libxml openssl pcntl pcre PDO Phar posix random readline Reflection session shmop SimpleXML sockets sodium SPL standard sysvmsg sysvsem sysvshm tokenizer xml xmlreader xmlwriter xsl Zend OPcache zip zlib
+calendar Core ctype date dom exif FFI fileinfo filter ftp gettext hash iconv json libxml openssl pcntl pcre PDO Phar posix random readline Reflection session shmop SimpleXML sockets sodium SPL standard sysvmsg sysvsem sysvshm tokenizer xml xmlreader xmlwriter xsl Zend OPcache zip zlib pdo_pgsql pgsql
 
 [Zend Modules]
 Zend OPcache
 ```
 
 - Composer
+
+Tem que ter um banco de dados postgres 16
+`docker compose up -d`
+
 
 # Getting started
 
@@ -33,3 +37,9 @@ Executar o projeto
 # Configurar o banco de dados
 
 Instalar um banco de dados via docker
+
+conecta um banco de dados no seu .env
+
+`php artisan migrate`
+
+`php artisan db:seed`
