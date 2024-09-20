@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Client Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-900 text-white flex items-center justify-center min-h-screen">
     <div class="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-4xl">
         <!-- Responsive Flexbox for buttons -->
@@ -17,7 +19,7 @@
                 Novo Cliente
             </button>
         </div>
-        
+
         <!-- Responsive Table -->
         <div class="overflow-x-auto">
             <table class="min-w-full table-auto text-left">
@@ -31,13 +33,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-gray-800 border-b border-gray-700">
-                        <td class="px-4 py-2">Cliente Teste</td>
-                        <td class="px-4 py-2">40</td>
-                        <td class="px-4 py-2">R$ 20,00</td>
-                        <td class="px-4 py-2">0,50</td>
-                        <td class="px-4 py-2">13/09/2024</td>
-                    </tr>
+                    @foreach ($works as $work )
+                        <tr class="bg-gray-800 border-b border-gray-700">
+                            <td class="px-4 py-2">{{ $work->customer->name }}</td> 
+                            <td class="px-4 py-2">{{ $work->pices }}</td> 
+                            <td class="px-4 py-2">{{ $work->totalPrice() }}</td> 
+                            <td class="px-4 py-2">{{ $work->price() }}</td> 
+                            <td class="px-4 py-2">{{ $work->date }}</td> 
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -70,7 +74,7 @@
                 </div>
                 <div class="mb-4">
                     <label for="data" class="block text-sm font-medium">Data</label>
-                    <input type="date" id="data" class="w-full p-2 border border-gray-300 rounded-md">
+                    <input type="date" id="data" class="w-full p-2 border border-gray-300 rounded-md" value="{{$now}}">
                 </div>
                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 w-full">
                     Adicionar Cliente
@@ -124,4 +128,5 @@
         });
     </script>
 </body>
+
 </html>
